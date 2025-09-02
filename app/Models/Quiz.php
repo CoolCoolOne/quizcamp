@@ -7,4 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class Quiz extends Model
 {
     //
+     protected $fillable = [
+        'title',
+        'user_id',
+        'status',
+        'attempt_number',
+    ];
 }
