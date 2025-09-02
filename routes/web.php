@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\QuizController;
+// use App\Http\Controllers\Livewire\Quiz;
 
 Route::view('/', 'welcome');
 
