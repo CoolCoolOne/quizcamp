@@ -5,6 +5,6 @@
 
         {{-- <input type="radio" wire:model="status"> --}}
         <br><br>
-        <button type="submit">Создать</button>
+        <button wire:click="save" type="submit">Создать</button>
     </form>
 </div>

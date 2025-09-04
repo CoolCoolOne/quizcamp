@@ -8,14 +8,19 @@ use Illuminate\Support\Facades\Auth;
 
 class CreateQuiz extends Component
 {
-     public $title = '';
+    public string $title = '';
  
     public $user_id = '';
+
+    public function mount()
+    {
+        $this->user_id = Auth::user()->id;
+    }
 
     public function save()
     {
         Quiz::create(
-            $this->only(['title', 'user_id'=>Auth::user()->id])
+            $this->all()
         );
  
         session()->flash('status', 'Новый опрос создан');

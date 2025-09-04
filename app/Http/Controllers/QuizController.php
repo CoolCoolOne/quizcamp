@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Quiz;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class QuizController extends Controller
 {
@@ -12,7 +13,7 @@ class QuizController extends Controller
      */
     public function index()
     {
-        $quizzes = Quiz::all();
+        $quizzes = Quiz::latest()->where('user_id', Auth::user()->id)->paginate(6);
         return view('quizzes.index', compact('quizzes'));
     }
 
@@ -29,17 +30,17 @@ class QuizController extends Controller
      */
     public function store(Request $request)
     {
-        $request['status'] = $request->has('status');
-        $request->validate([
-            'title' => 'required|max:150',
-        ]);
-        $user_id = auth()->user()->id;
-        Quiz::create([
-            'title' => $request['title'],
-            'user_id' => $user_id,
-            'status' => $request['status'],
-        ]);
-        return redirect()->route('quizzes.index')->with('success', 'Опрос создан!');
+        // $request['status'] = $request->has('status');
+        // $request->validate([
+        //     'title' => 'required|max:150',
+        // ]);
+        // $user_id = auth()->user()->id;
+        // Quiz::create([
+        //     'title' => $request['title'],
+        //     'user_id' => $user_id,
+        //     'status' => $request['status'],
+        // ]);
+        // return redirect()->route('quizzes.index')->with('success', 'Опрос создан!');
     }
 
     /**
