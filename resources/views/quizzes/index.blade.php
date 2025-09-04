@@ -9,8 +9,11 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
+
+
+                    
                     <div style="overflow: auto;">
-                        <table class="table mt-5 alert-info rounded">
+                        <table class="table-auto">
                             <thead>
                                 <tr>
                                     <th>Заголовок</th>
@@ -42,7 +45,7 @@
 
 
 
-                    {{ $quizzes->links('pagination::bootstrap-5') }} <!-- Пагинация -->
+                    {{ $quizzes->links('pagination::tailwind') }} <!-- Пагинация -->
                 </div>
             </div>
         </div>
